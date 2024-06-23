@@ -1,0 +1,41 @@
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.exe
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.deps.json
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.runtimeconfig.json
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.runtimeconfig.dev.json
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.dll
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.pdb
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.csprojAssemblyReference.cache
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.csproj.CoreCompileInputs.cache
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.AssemblyInfoInputs.cache
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.AssemblyInfo.cs
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.dll
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.pdb
+D:\David (MAIN)\C# Projects\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.genruntimeconfig.cache
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.exe
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.deps.json
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.runtimeconfig.json
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.runtimeconfig.dev.json
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.dll
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.pdb
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.csproj.AssemblyReference.cache
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.AssemblyInfoInputs.cache
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.AssemblyInfo.cs
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.csproj.CoreCompileInputs.cache
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.dll
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.pdb
+C:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.genruntimeconfig.cache
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.exe
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.deps.json
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.runtimeconfig.json
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.runtimeconfig.dev.json
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.dll
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\bin\Debug\netcoreapp3.1\MotivationProgram.pdb
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.csproj.AssemblyReference.cache
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.GeneratedMSBuildEditorConfig.editorconfig
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.AssemblyInfoInputs.cache
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.AssemblyInfo.cs
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.csproj.CoreCompileInputs.cache
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.dll
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.pdb
+G:\Projects\C#\Console Applications\MotivationProgram(KEEP)\obj\Debug\netcoreapp3.1\MotivationProgram.genruntimeconfig.cache
