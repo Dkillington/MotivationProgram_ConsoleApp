@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text.Json;
 using System.IO;
 
-//Name of file
 namespace MotivationProgram
 {
     class Program
@@ -13,11 +12,12 @@ namespace MotivationProgram
         static Random rand = new Random();
         static string answer = "";
 
-        // Player Responses
+        // Player triggers
         static List<string> nos = new List<string>();
         static List<string> yes = new List<string>();
         static List<string> maybes = new List<string>();
         static List<string> badWords = new List<string>();
+        static List<string> leaves = new List<string>();
 
         //Inital name + gender asking
         static List<string> noName = new List<string>();
@@ -35,7 +35,7 @@ namespace MotivationProgram
         static List<string> badWordResponses = new List<string>();
         static List<string> unknownResponses = new List<string>();
         static List<string> quoteResponses = new List<string>();
-        static List<string> musicResponses = new List<string>();
+        static List<string> leaveResponses = new List<string>();
         static List<List<string>> jokeResponses = new List<List<string>>();
 
         // Follow-up Questions dependent on user mood
@@ -47,7 +47,7 @@ namespace MotivationProgram
 
         // Refresh all computer responses in the program
         // (This is done in case aspects of the user change upon next playthrough)
-        public static void RefreshResponses()
+        static void RefreshResponses()
         {
             // Clears all computer responses
             ClearAllLists();
@@ -57,7 +57,7 @@ namespace MotivationProgram
             AddComputerWelcomes(); // Add welcoming messages from the computer
             AddComputerResponses(); // Add all computer responses to player input
 
-            static void AddTriggers()
+            void AddTriggers()
             {
                 // User says no
                 nos.Add("no");
@@ -94,8 +94,6 @@ namespace MotivationProgram
                 yes.Add("yesss");
                 yes.Add("yessss");
                 yes.Add("yes!");
-                yes.Add("yes!!");
-                yes.Add("yes!!!");
                 yes.Add("ye");
                 yes.Add("yee");
                 yes.Add("yeee");
@@ -105,43 +103,53 @@ namespace MotivationProgram
                 yes.Add("yea");
                 yes.Add("yeet");
                 yes.Add("yert");
-                yes.Add("sure");
                 yes.Add("yep");
-                yes.Add("quite");
-                yes.Add("indeed");
                 yes.Add("yeppers");
                 yes.Add("yepper");
                 yes.Add("yeuh");
                 yes.Add("yeuhp");
+                yes.Add("quite");
+                yes.Add("indeed");
+                yes.Add("sure");
+                yes.Add("absolutely");
+                yes.Add("aye");
 
                 //Swears
                 badWords.Add("fuck");
                 badWords.Add("dick");
                 badWords.Add("shit");
-                badWords.Add("ass");
                 badWords.Add("asshole");
                 badWords.Add("pussy");
-                badWords.Add("hoe");
                 badWords.Add("cunt");
-                badWords.Add("cock");
                 badWords.Add("fag");
-                badWords.Add("faggot");
                 badWords.Add("bitch");
 
                 // Maybe
                 maybes.Add("maybe");
                 maybes.Add("mayb");
                 maybes.Add("perhaps");
+                maybes.Add("possibly");
+                maybes.Add("perchance");
+
+                // Quit
+                leaves.Add("farewell");
+                leaves.Add("bye");
+                leaves.Add("goodbye");
+                leaves.Add("adios");
+                leaves.Add("leave");
+                leaves.Add("exit");
+                leaves.Add("quit");
             }
-            static void AddComputerWelcomes()
+            void AddComputerWelcomes()
             {
-                //New player
+                // Generate greetings for a . . .
+                // New Player
                 newWelcomes.Add($"Welcome to the Motivation Program {player.name}, where basically my goal is to boost your mood. Lets begin! So, do you feel good today?");
 
-                //Not new
+                // Returning Player
                 welcomes.Add($"Welcome back {player.name}, are you feeling alright?");
             }
-            static void AddComputerResponses()
+            void AddComputerResponses()
             {
                 // Add responses from the computer which trigger if the user says a form of ...
                 // 'Yes'
@@ -155,6 +163,9 @@ namespace MotivationProgram
 
                 // Nothing
                 AddBlankResponses();
+
+                // 'Goodbye' or form of leaving
+                AddLeaveResponses();
 
                 // Something unknown/indiscernible
                 AddUnknownResponses();
@@ -173,25 +184,25 @@ namespace MotivationProgram
 
                 void AddYesResponses()
                 {
-                    yesResponses.Add("Oh! I... actually helped! I'm surprised.");
-                    yesResponses.Add("Oh great! Looks like I did my job. How cool.");
-                    yesResponses.Add("Awesome! Go celebrate this triumphant occasion!");
-                    yesResponses.Add("I'm happy that I was of some use! Usually I just sit here and keep asking \"Feeling Better Yet?\" over and over until I go insane... I'm not crazy right? ...");
-                    yesResponses.Add("Huh, you know it usually takes me longer to help...");
+                    yesResponses.Add("Oh?! I actually helped! COOL!");
+                    yesResponses.Add("Awesome!");
+                    yesResponses.Add("Fantastic!");
+                    yesResponses.Add("That is great news!");
+                    yesResponses.Add("I know you can't see it but I am smiling");
+                    yesResponses.Add("Awesome! Go celebrate this joyous occasion!");
+                    yesResponses.Add("I'm happy that I was of some use! Usually I just sit here and keep asking \"Feeling Better Yet?\" over and over forever . . . I'm not crazy right?");
+                    yesResponses.Add("Oh wow, usually it takes me longer to help");
                     yesResponses.Add("Oh yeah, " + player.name + "! I am glad!");
-                    yesResponses.Add("Great to hear! Or... well... great to have processed through binary conversion of textual information for me to understand... I guess.");
-                    yesResponses.Add("Great, " + player.name + "! Now go treat yourself.");
+                    yesResponses.Add("Great! I am so happy for you!");
+                    yesResponses.Add("That is great " + player.name + "!");
+                    yesResponses.Add("I would high-five you if I could");
                     yesResponses.Add("https://youtu.be/3GwjfUFyY6M");
-                    yesResponses.Add("Whew! What a relief.");
-                    yesResponses.Add("Oh! Wow, I am really glad you didn't say no...");
-                    yesResponses.Add("Awesome! Keep up it up " + player.name + ".");
-                    yesResponses.Add("Hey good for you " + player.name + "! You deserve to feel great.");
-                    yesResponses.Add("Pfft. Who needs bad vibes amirite?");
-                    yesResponses.Add("I'm happy for you!");
-                    yesResponses.Add("Great! Please don't change your response the next time I ask...");
-                    yesResponses.Add("That is honestly really good news! I would suggest leaving while your mood is still positive though. I have a tendency of saying the wrong thing...");
-                    yesResponses.Add("I feel as happy for you as my circuits allow me to!");
-                    yesResponses.Add("I'm glad I helped! ... If I did ... I'm supposed to. Like that is my job as a computer. I really don't think im programmed for anything else... maybe Football. I could be a Football simulator... TOUCHDOWN! Right?");
+                    yesResponses.Add("Whew! That's a relief. I was reaaaally hoping you'd say that.");
+                    yesResponses.Add("Oh wow! I am really glad you didn't say no . . .");
+                    yesResponses.Add("Awesome! Keep up it up " + player.name);
+                    yesResponses.Add("Hey, good for you " + player.name + "! You deserve to feel great.");
+                    yesResponses.Add("You should celebrate!");
+                    yesResponses.Add("That is honestly really good news! I would suggest leaving while your mood is still positive though . . . I have a tendency of saying the wrong thing");
                 }
                 void AddNoResponses()
                 {
@@ -210,6 +221,27 @@ namespace MotivationProgram
                     noResponses.Add("Uh... well... hm. This is awkward.");
                     noResponses.Add("Its ok " + player.name + ". We all feel like that sometimes.\nWell... not me since i'm a computer but still...");
                     noResponses.Add("You're a smoking hot stud " + player.name + " and nobody can tell me any different.");
+
+                    noResponses.Add($"Well, not every day can be a winner, {player.name}. Tomorrow's another shot at greatness!");
+                    noResponses.Add($"No worries, {player.name}. Remember, even the darkest nights will end and the sun will rise.");
+                    noResponses.Add($"That's okay. Sometimes a setback is just a setup for a comeback.");
+                    noResponses.Add($"No problemo, {player.name}. Keep your chin up and keep moving forward.");
+                    noResponses.Add($"No worries, {player.name}. You're doing great!");
+                    noResponses.Add($"No can sometimes be the first step towards a better yes, {player.name}.");
+                    noResponses.Add($"No worries, {player.name}. You've got this!");
+                    noResponses.Add($"Hey {player.name}, tough times don't last, but tough people do.");
+                    noResponses.Add($"Hang in there, {player.name}. You've overcome challenges before, and you can do it again.");
+                    noResponses.Add($"Don't let this setback define you, {player.name}. You're stronger than you think.");
+                    noResponses.Add($"Keep pushing forward, {player.name}. Success is just around the corner.");
+                    noResponses.Add($"You're capable of amazing things, {player.name}. Believe in yourself!");
+                    noResponses.Add($"Take a deep breath, {player.name}. You've got everything it takes to bounce back.");
+                    noResponses.Add($"Stay positive, {player.name}. You're closer to success than you think.");
+                    noResponses.Add($"Sending you positive vibes, {player.name}. You've got this!");
+                    noResponses.Add($"You're not alone, {player.name}. We're in this together.");
+                    noResponses.Add($"Don't sweat it, {player.name}. You're making progress, even if it's not visible right now.");
+                    noResponses.Add($"Stay strong, {player.name}. This challenge will only make you stronger.");
+                    noResponses.Add($"Believe in yourself, {player.name}. You're capable of more than you realize.");
+                    noResponses.Add($"Keep going, {player.name}. You're on the path to greatness.");
 
                     // Providing a quote
                     quoteResponses.Add("'What seems to us as bitter trials are often blessings in disguise.' - Oscar Wilde");
@@ -238,19 +270,26 @@ namespace MotivationProgram
                     quoteResponses.Add("'The wound is the place where the light enters you.' - Rumi");
                     quoteResponses.Add("'Why fit in when you were born to stand out?' - Dr. Seuss");
 
-                    // Suggesting music
-                    musicResponses.Add("smooth jazz.\n\nExamples:\n\n-Louis Armstrong\n-Miles Davis");
-                    musicResponses.Add("hard rock.\n\nExamples:\n\n-Led Zeppelin\n-Metallica\n-Van Halen\n-Def Leppard\n-Scorpions");
-                    musicResponses.Add("rap.\n\nExamples:\n\n-Eminem\n-Tupac\n-Post Malone");
-                    musicResponses.Add("hip-hop.\n\nExamples:\n\n-Beastie Boys\n-Black Eyed Peas\n-Run DMC");
-                    musicResponses.Add("classical music.\n\nExamples:\n\n-Bach\n-Beethoven\n-Mozart\n-Chopin");
-                    musicResponses.Add("heavy metal.\n\nExamples:\n\n-Judas Priest\n-Slayer\n-Pantera");
-                    musicResponses.Add("blues.\n\nExamples:\n\n-Stevie Ray Vaughn\n-ZZ Top\n-The Doors.");
-                    musicResponses.Add("relaxing music. Something with calming vibes.");
-                    musicResponses.Add("something funny.");
-                    musicResponses.Add("motivational speeches.");
-                    musicResponses.Add("country.\n\nExamples:\n\n-Garth Brooks\n-Hank Williams\n-Willie Nelson");
-                    musicResponses.Add("punk rock.\n\nExamples:\n\n-The Ramones\n-The Clash\n-Sex Pistols");
+                    quoteResponses.Add("'Success is not final, failure is not fatal: It is the courage to continue that counts.' - Winston Churchill");
+                    quoteResponses.Add("'Believe you can and you're halfway there.' - Theodore Roosevelt");
+                    quoteResponses.Add("'The future belongs to those who believe in the beauty of their dreams.' - Eleanor Roosevelt");
+                    quoteResponses.Add("'It is never too late to be what you might have been.' - George Eliot");
+                    quoteResponses.Add("'Don't watch the clock; do what it does. Keep going.' - Sam Levenson");
+                    quoteResponses.Add("'In the middle of difficulty lies opportunity.' - Albert Einstein");
+                    quoteResponses.Add("'The only limit to our realization of tomorrow will be our doubts of today.' - Franklin D. Roosevelt");
+                    quoteResponses.Add("'You are never too old to set another goal or to dream a new dream.' - C.S. Lewis");
+                    quoteResponses.Add("'The best way to predict the future is to create it.' - Abraham Lincoln");
+                    quoteResponses.Add("'Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.' - Roy T. Bennett");
+                    quoteResponses.Add("'The journey of a thousand miles begins with one step.' - Lao Tzu");
+                    quoteResponses.Add("'It always seems impossible until it's done.' - Nelson Mandela");
+                    quoteResponses.Add("'You are braver than you believe, stronger than you seem, and smarter than you think.' - A.A. Milne");
+                    quoteResponses.Add("'You must be the change you wish to see in the world.' - Mahatma Gandhi");
+                    quoteResponses.Add("'Every strike brings me closer to the next home run.' - Babe Ruth");
+                    quoteResponses.Add("'Happiness is not something ready made. It comes from your own actions.' - Dalai Lama");
+                    quoteResponses.Add("'You are the master of your fate, the captain of your soul.' - Invictus");
+                    quoteResponses.Add("'Life is 10% what happens to us and 90% how we react to it.' - Charles R. Swindoll");
+                    quoteResponses.Add("'It’s not whether you get knocked down, it’s whether you get up.' - Vince Lombardi");
+
 
                     // Telling a joke
                     jokeResponses.Add(new List<string>() { "Knock knock", "Uh... I'm not sure where I was going with this...", "I mean, how would I know? I have very limited knowledge of what knocking is.", "A noise you make with a hand against a door? Ok so what is a hand... or a door?", "The whole concept of knocking just seems foreign to me. Same with hands and doors.", "Like, how am I supposed to make such a joke if I don't understand any of the associated elements???", "Anyway, I forgot where I was going with this. Oh well... where was I?" });
@@ -262,6 +301,13 @@ namespace MotivationProgram
                     jokeResponses.Add(new List<string>() { "Ok how about a joke involving bars and bears. Good combo!", "So a bear walks into a bar and says to the bartender, I'll have a rum... and a coke.", "The bartender asks, \"why the big pause?\"", "The bear thinks for a minute and says \"I don't know, I was born with them.\"" });
                     jokeResponses.Add(new List<string>() { "Well here is a classic bar joke.", "A man runs into a bar waving a gun around screaming, \"WHO SLEPT WITH MY WIFE, I'M GONNA KILL YOU!\"", "At the end of the bar a voice yells \"You ain't got enough bullets bud!\"" });
                     jokeResponses.Add(new List<string>() { "Ok here is a joke involving automotive transportation!", "They say that he who runs in front of a car is bound to get tired...", "Likewise, he who runs behind a car will inevitably become exhausted!" });
+
+                    jokeResponses.Add(new List<string>() { "Parallel lines have so much in common...", "It’s a shame they’ll never meet." });
+                    jokeResponses.Add(new List<string>() { "Why did the scarecrow win an award?", "Because he was outstanding in his field." });
+                    jokeResponses.Add(new List<string>() { "I used to play piano by ear, but now...", "I use my hands like everyone else." });
+                    jokeResponses.Add(new List<string>() { "I'm reading a book on anti-gravity...", "It's impossible to put down." });
+                    jokeResponses.Add(new List<string>() { "Why did the golfer bring two pairs of pants?", "In case he got a hole in one." });
+                    jokeResponses.Add(new List<string>() { "Why don't conspiracy theorists trust stairs?", "Because they're always up to something." });
                 }
                 void AddMaybeResponses()
                 {
@@ -275,10 +321,18 @@ namespace MotivationProgram
                     maybeResponses.Add("Just pick one. Yes or no... I didn't assume it was that hard...");
                     maybeResponses.Add("Look I know moods fluctuate but you have to tell me if you're either feeling good or bad. Maybe doesn't work.");
                     maybeResponses.Add("Oh. Well I will be here whenever you make up your mind.");
+                    maybeResponses.Add("Maybe, maybe not. Choose wisely . . .");
+                    maybeResponses.Add("Indecision is the enemy of progress, my friend.");
+                    maybeResponses.Add($"If '{answer}' was a color, it would be beige. Let's aim for more vibrant answers.");
+                    maybeResponses.Add($"Flip a coin if you have to, but '{answer}' won't cut it here.");
+                    maybeResponses.Add("I'm detecting some serious hesitation. Let's try again with a clear yes or no.");
+                    maybeResponses.Add($"You're stuck in '{answer}' purgatory. Time to make a decision and move forward.");
+                    maybeResponses.Add("Let's break the cycle of uncertainty. Yes or no?");
+                    maybeResponses.Add("Life's too short for maybes. Make a choice and let's roll with it.");
                 }
                 void AddBlankResponses()
                 {
-                    if (player.bff)
+                    if (player.friendStatus == friendEnums.BFF)
                     {
                         blankResponses.Add($"Uh, {player.name}, you can talk to me. We're bffs remember . . .");
                         blankResponses.Add($"I would not expect the silent treatment from a best friend :(");
@@ -299,6 +353,16 @@ namespace MotivationProgram
                     blankResponses.Add("I'm sorry I thought I was supposed to help you or something . . . but no, apparently I was wrong.");
                     blankResponses.Add("If you aren't going to say anything then why bother doing this.");
                     blankResponses.Add(player.name + "? . . . did you die? Should I call the police?");
+                    blankResponses.Add("Are you pondering what I'm pondering?");
+                    blankResponses.Add("Maybe you're just lost for words because I'm too awesome.");
+                    blankResponses.Add("Silence... the ultimate response.");
+                    blankResponses.Add("Well, this is awkward...");
+                    blankResponses.Add("Don't worry, I'm a virtual assistant with infinite patience.");
+                    blankResponses.Add("I can out-wait you. Challenge accepted.");
+                    blankResponses.Add("Do you need a moment to collect your thoughts?");
+                    blankResponses.Add("I've got all day... literally.");
+                    blankResponses.Add("You're testing my patience, aren't you?");
+                    blankResponses.Add("Okay, you win the silent treatment award.");
                 }
                 void AddUnknownResponses()
                 {
@@ -311,7 +375,11 @@ namespace MotivationProgram
                     unknownResponses.Add("Could you rephrase your answer a bit please?");
                     unknownResponses.Add("I'm sorry, you lost me. Just say a form of yes or no.");
                     unknownResponses.Add("Was that english? I am not proficent in any other languages, sorry.");
-                    unknownResponses.Add($"{player.name}, just say yes or no. Not '{answer}'...");
+                    unknownResponses.Add($"{player.name}, just say yes or no. Not '{answer}' . . .");
+                    unknownResponses.Add("I think wires got crossed somewhere. Yes or no works best here.");
+                    unknownResponses.Add("I'm a bit confused by your answer. A simple yes or no would be great.");
+                    unknownResponses.Add("Sorry, I couldn't parse that. Yes or no, perhaps?");
+                    unknownResponses.Add("Your response is a mystery to me. Yes or no is what I need.");
                 }
                 void AddBadWordResponses()
                 {
@@ -329,6 +397,12 @@ namespace MotivationProgram
                     badWordResponses.Add("*GASP*. You can't say that word . . .");
                     badWordResponses.Add(":(");
                     badWordResponses.Add("I didn't like that language so i'm going to ignore what you said and move on");
+                    badWordResponses.Add("Can you try expressing that differently?");
+                    badWordResponses.Add("I'd appreciate it if you refrained from using such language.");
+                    badWordResponses.Add("Let's maintain a respectful tone, please.");
+                    badWordResponses.Add("That language won't get you far in life.");
+                    badWordResponses.Add("Ook, lets keep it clean shall we?");
+                    badWordResponses.Add("Let's try for a more family-friendly approach.");
                 }
                 void AddNoNameResponses()
                 {
@@ -341,12 +415,57 @@ namespace MotivationProgram
                     noName.Add("User anonymity is against my programming, please tell me your name");
                     noName.Add($"You need to actually put a name. . .");
                     noName.Add($"I know, I know. Kinda personal right? Oh well. Just do it.");
+
+                    noName.Add("Please enter your name; I can't continue without it.");
+                    noName.Add("A name is required for us to begin.");
+                    noName.Add("It seems you forgot to tell me your name. . .");
+                    noName.Add("Let's start with something simple: your name.");
+                    noName.Add("I need your name to assist you further.");
+                    noName.Add("Please don't leave your name blank!");
+                    noName.Add("Enter your name so we can get started");
+                    noName.Add("Naming yourself is the first step in our adventure together . . .");
+                    noName.Add("Your name is essential; please provide one.");
+                    noName.Add("I can't interact with you without knowing your name.");
+                    noName.Add("You forgot to tell me your name! Please do so.");
+                    noName.Add("I'm here to assist you, but I need to know your name first.");
                 }
                 void AddLikeNameResponses()
                 {
-                    computerLikesName.Add("Great name!");
+                    computerLikesName.Add("Oo, that's a great name!");
+                    computerLikesName.Add($"{player.name} . . . I like that!");
+                    computerLikesName.Add($"Wow, I like that name");
+                    computerLikesName.Add("I haven't heard that name in a while, it's lovely!");
+                    computerLikesName.Add($"Your name is so unique, {player.name}!");
+                    computerLikesName.Add($"I absolutely adore the name {player.name}!");
+                    computerLikesName.Add($"What a fantastic name you have, {player.name}!");
+                    computerLikesName.Add($"{player.name} is such a charming name!");
+                    computerLikesName.Add($"That's a name that stands out, {player.name}!");
+                    computerLikesName.Add($"I must say, {player.name} is a beautiful name.");
+                    computerLikesName.Add($"You have a wonderful name, {player.name}!");
+                    computerLikesName.Add($"A name like {player.name} is hard to forget!");
+                    computerLikesName.Add($"I really like the sound of {player.name}.");
+                    computerLikesName.Add($"{player.name}, what a delightful name!");
+                    computerLikesName.Add($"That's an awesome name, {player.name}!");
+                    computerLikesName.Add($"The name {player.name} has a nice ring to it!");
+                    computerLikesName.Add($"I've always liked the name {player.name}.");
+                    computerLikesName.Add($"I'm quite fond of the name {player.name}.");
                 }
 
+                void AddLeaveResponses()
+                {
+                    leaveResponses.Add("Oh, leaving so soon? Well okay . . . goodbye");
+                    leaveResponses.Add("I hope I helped! Goodbye");
+                    leaveResponses.Add("Goodbyes are so hard for me, just go");
+                    leaveResponses.Add("But, I didn't get to tell my favorite joke yet. *Sigh* Alright, goodbye");
+                    leaveResponses.Add("Oh no . . . was it something I said? I'm sorry . . . goodbye");
+                    leaveResponses.Add($"Goodbye {player.name}, I will miss you dearly");
+                    leaveResponses.Add("Ah, I was starting to like the company. Oh well, goodbye");
+                    leaveResponses.Add($"Goodbye {player.name}!");
+                    leaveResponses.Add($"Very well, until we meet again {player.name}");
+                    leaveResponses.Add($"Well this has been fun, I hope to see you again soon!");
+                    leaveResponses.Add($"Come back soon {player.name}!");
+                    leaveResponses.Add($"Ok! I'll be waiting right here for you in case you ever need me!");
+                }
                 void AddFollowUps()
                 {
                     // If the user felt bad previously
@@ -374,6 +493,7 @@ namespace MotivationProgram
                 yes.Clear();
                 maybes.Clear();
                 badWords.Clear();
+                leaves.Clear();
 
                 noName.Clear();
                 computerLikesName.Clear();
@@ -386,40 +506,399 @@ namespace MotivationProgram
                 badWordResponses.Clear();
                 unknownResponses.Clear();
                 quoteResponses.Clear();
-                musicResponses.Clear();
                 jokeResponses.Clear();
                 wasFeelingBad.Clear();
                 wasFeelingGood.Clear();
+                leaveResponses.Clear();
             }
         }
 
+        // Main Loop
         static void Main(string[] args)
         {
             LoadGame(); // Load Save Data
 
             // Get players name if it is their first time playing
-            if(player.timesPlayed <= 0)
+            if(PlayersFirstTime())
             {
                 GetPlayerName();
             }
 
             RefreshResponses(); // Revise computer responses so they are fresh and match current player's stats
             player.timesPlayed++; // Increment history of playthroughs
-
-            SaveGame(); // Save Data
-
             player.mood = 0; // Players mood starts at neutral
             player.timesAskedThisSession = 0; // No questions have been asked yet...
 
+            SaveGame(); // Save Data
+
+            // Forever Loop
             while (1==1)
             {
-                Game();
+                Play();
                 SaveGame();
             }
            
+
+            // The Game Itself
+            void Play()
+            {
+                if (justStartedGame)
+                {
+                    WelcomePlayer();
+                }
+                else
+                {
+                    AskPlayer();
+                }
+
+                Respond();
+
+
+                // Greet player / Get entry data
+                void WelcomePlayer()
+                {
+                    justStartedGame = false;
+
+                    // If it is the Player's first session, provide an introductory message
+                    if (player.timesPlayed <= 1)
+                    {
+                        Ask(RandomStringFrom(newWelcomes));
+                    }
+                    else
+                    {
+                        // Ask the player if their name changed every (x) times they play
+                        if (player.timesPlayed % 20 == 0)
+                        {
+                            AskIfNameChanged();
+                        }
+
+                        GenerateWelcomingText();
+                    }
+
+
+                    // Ask if the players name changed, correct it if necessary
+                    void AskIfNameChanged()
+                    {
+                        Ask($"Just wanted to ask real quick {player.name}, have you changed your name since we last talked?");
+
+                        if (AnswerIsInList(yes))
+                        {
+                            GetPlayerName();
+                        }
+                        else if (AnswerIsInList(nos))
+                        {
+                            NoReply($"Ok, I just wanted to check!");
+                        }
+                        else if (AnswerIsInList(maybes))
+                        {
+                            NoReply($"Uh ok. Well I'm not sure how you can \"{answer}\" change your name... But I'll assume that means no");
+                        }
+                        else if (AnswerIsInList(badWords))
+                        {
+                            NoReply($"Woah, sorry I asked . . . moving on");
+                        }
+                        else // Unknown response
+                        {
+                            NoReply($"Uhhh. Okay. Moving on!");
+                        }
+                    }
+
+                    // Welcome the player
+                    void GenerateWelcomingText()
+                    {
+                        if (player.timesPlayed == 5)
+                        {
+                            BecomeFriend();
+                        }
+                        else if (player.timesPlayed == 25)
+                        {
+                            BecomeBuddy();
+                        }
+                        else if (player.timesPlayed == 50)
+                        {
+                            BecomeBFF();
+                        }
+                        else
+                        {
+                            Ask(RandomStringFrom(welcomes));
+                        }
+
+
+                        void BecomeFriend()
+                        {
+                            NoReply($"Hey {player.name}, so this is our 5th time together.", "Since I am more used to talking to you, I no longer consider you just a mere acquaintance . . .");
+                            player.UpgradeFriendStatus();
+                            NoReply("You are officially my friend! Cool huh?");
+                            Ask("So friend, do you feel good today?");
+                        }
+                        void BecomeBuddy()
+                        {
+                            NoReply($"Wow {player.name}, it has been {player.timesPlayed} times that we have talked.", "I think at this point, you can no longer be my friend . . .");
+                            player.UpgradeFriendStatus();
+                            NoReply("But be my BUDDY instead!", "I felt like Buddy would be a more fitting title for you . . . it has a better ring to it than 'friend'");
+                            NoReply($"Plus, we clearly know each other better now. Like I know your name is {player.name}, and . . .", "Well honestly, that's about all I know about you . . .", "I'm sure you're REALLY fascinating though! With all kinds of hobbies and interests . . . like golf!");
+                            Ask("Well anyway, are you feeling good today buddy?");
+                        }
+                        void BecomeBFF()
+                        {
+                            NoReply($"Welcome back {player.name}, I just wanted to say something real quick before we start.", $"Did you realize... we have talked {player.timesPlayed} times???", "Like that is a really crazy milestone . . . that is ALOT of time together", "And so, I am promoting you to the most prestigious honor that I can bestow . . .");
+                            player.UpgradeFriendStatus();
+                            NoReply("As of right now, you are offically my BFF!", "You are truly deserving of that title. You have made me feel so honored knowing I am your go-to motivator. That really means something.", $"So, thanks {player.name}. I look forward to {player.timesPlayed} more times with you! (Or a million...)", "Ok, with that out of the way, are you feeling good today?");
+
+                        }
+                    }
+                }
+
+                // Ask the player if their condition has improved/worsened
+                void AskPlayer()
+                {
+                    if (player.mood < 0)
+                    {
+                        Ask(RandomStringFrom(wasFeelingBad));
+                    }
+                    else if (player.mood > 0)
+                    {
+                        Ask(RandomStringFrom(wasFeelingGood));
+                    }
+                    else
+                    {
+                        Ask("So, do you feel good?");
+                    }
+                }
+
+                // Provide a response to the player's answer
+                void Respond()
+                {
+                    player.timesAsked++;
+                    player.timesAskedThisSession++;
+
+                    if (AnswerIsInList(yes))
+                    {
+                        player.mood = 1;
+                        NoReply(RandomStringFrom(yesResponses));
+                    }
+                    else if (AnswerIsInList(nos))
+                    {
+                        player.mood = -1;
+
+                        int ResponsesToNo = rand.Next(1, 4);
+                        switch (ResponsesToNo)
+                        {
+                            case 1:
+                                NoReply(RandomStringFrom(noResponses));
+                                break;
+
+                            case 2:
+                                NoReply(RandomStringFrom(quoteResponses));
+                                break;
+
+                            case 3:
+                                NoReply(RandomList(jokeResponses));
+                                break;
+                        }
+                    }
+                    else if (string.IsNullOrWhiteSpace(answer))
+                    {
+                        NoReply(RandomStringFrom(blankResponses));
+                    }
+                    else if (AnswerIsInList(maybes))
+                    {
+                        NoReply(RandomStringFrom(maybeResponses));
+                    }
+                    else if (AnswerHasListItem(badWords))
+                    {
+                        NoReply(RandomStringFrom(badWordResponses));
+                    }
+                    else if (AnswerIsInList(leaves))
+                    {
+                        NoReply(RandomStringFrom(leaveResponses)); // Computer says goodbye
+                        Environment.Exit(0); // Exit
+                    }
+                    else
+                    {
+                        NoReply(RandomStringFrom(unknownResponses));
+                    }
+
+                }
+
+                // Returns true if a given list contains the player's answer
+                bool AnswerIsInList(List<string> givenList)
+                {
+                    if (givenList.Contains(answer.ToLower()))
+                    {
+                        return true;
+                    }
+
+                    return false;
+                }
+
+                // Returns true if any part of the player's answer is in the given list
+                bool AnswerHasListItem(List<string> givenList)
+                {
+                    if (givenList.Any(answer.ToLower().Contains))
+                    {
+                        return true;
+                    }
+
+                    return false;
+                }
+            }
+
+            // Return true if it is the player's first playthrough
+            bool PlayersFirstTime()
+            {
+                if (player.timesPlayed <= 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            // Ask for the player's name
+            void GetPlayerName()
+            {
+                bool decidingName = true;
+                while (decidingName == true)
+                {
+                    Ask("What is your first name?");
+
+                    //This now assigns the Name variable to whatever the player enters. They must press ENTER.
+                    player.name = answer;
+
+                    RefreshResponses();
+
+                    // Do not keep name or leave loop until player name isn't blank
+                    if (string.IsNullOrWhiteSpace(player.name))
+                    {
+                        NoReply(RandomStringFrom(noName));
+                    }
+                    else
+                    {
+                        int likeDecider = rand.Next(1, 10);
+                        if (likeDecider <= 5)
+                        {
+                            NoReply(RandomStringFrom(computerLikesName));
+                        }
+
+                        decidingName = false;
+                        SaveGame();
+                    }
+                }
+            }
         }
 
-        //Save data functionality
+
+
+        // Functionality
+        // Displays text and allows user to reply
+        static void Ask(params string[] messages)
+        {
+            Console.Clear();
+
+            foreach (string message in messages)
+            {
+                Console.Clear();
+                Console.WriteLine(ShowStats() + message + "\n\n");
+
+                if (MessageIsLastInArray(messages, message))
+                {
+                    answer = Console.ReadLine();
+                    RefreshResponses();
+                }
+                else
+                {
+                    Console.WriteLine("(Press Any Key. . . )\n");
+                    Console.ReadKey();
+                }
+
+                Console.Clear();
+
+
+                // Checks to see if a given text is the last in a given array
+                bool MessageIsLastInArray(string[] array, string message)
+                {
+                    if (Array.IndexOf(array, message) >= array.Length - 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+            }
+        }
+
+        // Displays text and DOESN'T allow user to reply
+        static void NoReply(params string[] messages)
+        {
+            Console.Clear();
+
+            foreach (string message in messages)
+            {
+                RefreshResponses();
+                Console.Clear();
+                Console.WriteLine(ShowStats() + message + "\n\n");
+                Console.WriteLine("(Press Any Key. . . )\n");
+                Console.ReadKey();
+            }
+        }
+
+        // Text at the top of the screen which displays information
+        static string ShowStats()
+        {
+            return $"[{player.ReturnName()}{ReturnFriendText()}]  (Mood: {player.ReturnMood()})  (Visits: {player.timesPlayed})  (Questions Asked: [This Session: {player.timesAskedThisSession}] [Total: {player.timesAsked}])\n---------------------------------------------------------------------------------------------\n\n"; ;
+
+
+            string ReturnFriendText()
+            {
+                return player.friendStatus switch
+                {
+                    friendEnums.Acquaintance => " (Acquaintance)",
+                    friendEnums.Friend => " (Friend)",
+                    friendEnums.Buddy => " (Buddy)",
+                    friendEnums.BFF => " (BFF)",
+                    _ => "" // Else
+                };
+            }
+        }
+
+        // Returns a random string of text from a list of strings
+        static string RandomStringFrom(List<string> responses)
+        {
+            try
+            {
+                return responses[rand.Next(0, responses.Count - 1)];
+            }
+            catch (Exception ex)
+            {
+                return $"Error: {ex}";
+            }
+        }
+
+        // Returns a random array of strings from given lists of strings
+        static string[] RandomList(List<List<string>> responsesLists)
+        {
+            try
+            {
+                return responsesLists[rand.Next(0, responsesLists.Count - 1)].ToArray();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                Console.ReadKey();
+                return null;
+            }
+        }
+
+
+
+
+        // Saving/Loading Functionality
         static void SaveGame()
         {
             string filename = GetSaveLocation() + @"\PlayerData.json";
@@ -440,7 +919,9 @@ namespace MotivationProgram
             }
 
         }
-        public static string GetSaveLocation()
+
+        // Locates Save Data file path / Generates one if necessary
+        static string GetSaveLocation()
         {
             string saveLocation = Directory.GetCurrentDirectory() + @"\SaveData";
 
@@ -451,271 +932,15 @@ namespace MotivationProgram
 
             return saveLocation;
         }
-
-        //Game Functions
-
-        static void GetPlayerName()
-        {
-            bool decidingName = true;
-            while (decidingName == true)
-            {
-                Write("What is your first name?");
-
-                //This now assigns the Name variable to whatever the player enters. They must press ENTER.
-                player.name = answer;
-
-                RefreshResponses();
-
-                // Do not keep name or leave loop until player name isn't blank
-                if (string.IsNullOrWhiteSpace(player.name))
-                {
-                    Write(RandomResponse(noName));
-                }
-                else
-                {
-                    int likeDecider = rand.Next(1, 10);
-                    if (likeDecider <= 5)
-                    {
-                        Write(RandomResponse(computerLikesName));
-                    }
-
-                    decidingName = false;
-                    SaveGame();
-                }
-            }
-        }
-        static void CheckForPlayerUpdate()
-        {
-            //Checks to see if player mood has changed
-
-            if (player.mood < 0)
-            {
-                Write(wasFeelingBad[rand.Next(0, wasFeelingBad.Count)]);
-            }
-            else if (player.mood > 0)
-            {
-                Write(wasFeelingGood[rand.Next(0, wasFeelingGood.Count)]);
-            }
-            else
-            {
-                Write("So, do you feel good?");
-            }
-
-        }
-        static void ComputerResponses()
-        {
-            player.timesAsked++;
-            player.timesAskedThisSession++;
-
-            if (yes.Contains(answer.ToLower()))
-            {
-                player.mood = 1;
-                Write(RandomResponse(yesResponses));
-
-            }
-            else if (nos.Contains(answer.ToLower()))
-            {
-                player.mood = -1;
-
-                //Made a variable that is now equal to the number generator grabbing a number between 1 and 4.
-                //Switch grabs that variable and then decides what to select based on what number it recieved. 
-                int ResponsesToNo = rand.Next(1, 5);
-                switch (ResponsesToNo)
-                {
-                    case 1:
-                        RandomResponse(noResponses);
-                        break;
-
-                    case 2:
-                        RandomResponse(quoteResponses);
-                        break;
-
-                    case 3:
-                        Write("Maybe music would help. Try listening to " + RandomResponse(musicResponses));
-                        break;
-
-                    case 4:
-                        Write(jokeResponses[rand.Next(0, jokeResponses.Count - 1)].ToArray());
-                        break;
-                }
-            }
-            else if (string.IsNullOrWhiteSpace(answer))
-            {
-                Write(RandomResponse(blankResponses));
-            }
-            else if (answer.ToLower() == "maybe" || answer.ToLower() == "mayb")
-            {
-                Write(RandomResponse(maybeResponses));
-            }
-            else if (badWords.Any(answer.ToLower().Contains))
-            {
-                Write(RandomResponse(badWordResponses));
-            }
-            //If what was said was not yes,no, or blank, then do whatever is in this box.
-            else
-            {
-                Write(RandomResponse(unknownResponses));
-            }
-        }
-        static void Game()
-        {
-            if(justStartedGame)
-            {
-                WelcomePlayer();
-            }
-            else
-            {
-                CheckForPlayerUpdate();
-            }
-
-            ComputerResponses();
-
-
-            void WelcomePlayer()
-            {
-                if (player.timesPlayed <= 1)
-                {
-                    Write(RandomResponse(welcomes));
-                }
-                else
-                {
-                    //If the times played is divisible by 5, it will ask if you changed your name
-                    if (player.timesPlayed % 5 == 0)
-                    {
-
-                        Write($"Just wanted to ask real quick {player.name}, have you changed your name since we last talked?");
-
-                        if (yes.Contains(answer.ToLower()))
-                        {
-                            GetPlayerName();
-                        }
-                        else if (nos.Contains(answer.ToLower()))
-                        {
-                            Write($"Ok, just checking!");
-                        }
-                        else if (maybes.Contains(answer.ToLower()))
-                        {
-                            Write($"Uh ok. Well I'm not sure how you can \"{answer}\" change your name... But I'll assume that means no. Moving on!");
-                        }
-                        else if (badWords.Contains(answer.ToLower()))
-                        {
-                            Write($"Woah, sorry I asked . . . anyway");
-                        }
-                        //If what was said was not yes,no, or blank, then do whatever is in this box.
-                        else
-                        {
-                            Write($"Uhhh. Okay. Moving on!");
-                        }
-                    }
-
-                    if (player.timesPlayed == 10)
-                    {
-                        Write(new List<string>() { $"Hey {player.name}, I just wanted to mention it is your tenth time using this.", "Usually I would expect someone to boot this up once, laugh at it and then close it forever, but NOT you!", "You have stuck around, and so to honor this, I wanted to give you a reward.", "As of right now, you are officially BFF status.", $"So BFF, do you feel good today?" }.ToArray());
-                        player.bff = true;
-                    }
-                    else if (player.timesPlayed == 100)
-                    {
-                        Write(new List<string>() { $"Welcome back {player.name}, I just wanted to say something real quick before we start.", "Did you realize... it is your HUNDREDTH time using this?", "Like that is a really crazy milestone. A HUNDRED TIMES!", "That makes me feel better knowing I am your go-to motivator. That really means something.", $"So, thanks {player.name}. I look forward to 100 more times with you! (Or a million...)", "Ok, with that out of the way, are you feeling good today?" }.ToArray());
-                    }
-                    else
-                    {
-                        Write(RandomResponse(welcomes));
-                    }
-                }
-
-                justStartedGame = false;
-            }
-        }
+    }
 
 
 
-
-
-
-        // Functionality
-            // For one message
-        static void Write(string message)
-        {
-            RefreshResponses();
-
-            Console.Clear();
-            Console.WriteLine(ShowStats() + message + "\n\n");
-            answer = Console.ReadLine();
-            Console.Clear();
-
-            RefreshResponses();
-        }
-
-            // For a list of messages
-        static void Write(string[] messages)
-        {
-            foreach(string message in messages)
-            {
-                RefreshResponses();
-
-                Console.Clear();
-                Console.WriteLine(ShowStats() + message + "\n\n");
-
-                //TEST
-                //This should execute only if the message is the last in the array
-                if (Array.IndexOf(messages, message) >= messages.Length - 1)
-                {
-                    answer = Console.ReadLine();
-                }
-                else
-                {
-                    Console.WriteLine("(Press Any Key. . . )\n");
-                    Console.ReadKey();
-                }
-            }
-
-            Console.Clear();
-            RefreshResponses();
-        }
-
-        // Returns a single string of text from a list of strings
-        static string RandomResponse(List<string> responses)
-        {
-            try
-            {
-                return responses[rand.Next(0, responses.Count - 1)];
-            }
-            catch (Exception ex)
-            {
-                return $"Error: {ex}";
-            }
-        }
-
-
-        // Text at the top of the screen which displays information
-        static string ShowStats()
-        {
-            string message = "";
-            string bffText = "";
-            if(player.bff)
-            {
-                bffText = " (BFF)";
-            }
-
-            message = $"[{player.name}{ bffText}]  (Mood: {GetMood()})  (Visits: {player.timesPlayed})  (Questions Asked: [This Session: {player.timesAskedThisSession}] [Total: {player.timesAsked}])\n---------------------------------------------------------------------------------------------\n\n";
-            return message;
-
-
-            string GetMood()
-            {
-                if(player.mood < 0)
-                {
-                    return "Bad";
-                }
-                if (player.mood > 0)
-                {
-                    return "Good";
-                }
-                else
-                {
-                    return "Neutral";
-                }
-            }
-        }
+    enum friendEnums
+    {
+        Acquaintance,
+        Friend,
+        Buddy,
+        BFF,
     }
 }
