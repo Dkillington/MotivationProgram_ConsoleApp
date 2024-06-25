@@ -1,0 +1,15 @@
+G:\Projects\C#\Console Applications\MotivationProgram\bin\Debug\net8.0\MotivationProgram.exe
+G:\Projects\C#\Console Applications\MotivationProgram\bin\Debug\net8.0\MotivationProgram.deps.json
+G:\Projects\C#\Console Applications\MotivationProgram\bin\Debug\net8.0\MotivationProgram.runtimeconfig.json
+G:\Projects\C#\Console Applications\MotivationProgram\bin\Debug\net8.0\MotivationProgram.dll
+G:\Projects\C#\Console Applications\MotivationProgram\bin\Debug\net8.0\MotivationProgram.pdb
+G:\Projects\C#\Console Applications\MotivationProgram\obj\Debug\net8.0\MotivationProgram.GeneratedMSBuildEditorConfig.editorconfig
+G:\Projects\C#\Console Applications\MotivationProgram\obj\Debug\net8.0\MotivationProgram.AssemblyInfoInputs.cache
+G:\Projects\C#\Console Applications\MotivationProgram\obj\Debug\net8.0\MotivationProgram.AssemblyInfo.cs
+G:\Projects\C#\Console Applications\MotivationProgram\obj\Debug\net8.0\MotivationProgram.csproj.CoreCompileInputs.cache
+G:\Projects\C#\Console Applications\MotivationProgram\obj\Debug\net8.0\MotivationProgram.sourcelink.json
+G:\Projects\C#\Console Applications\MotivationProgram\obj\Debug\net8.0\MotivationProgram.dll
+G:\Projects\C#\Console Applications\MotivationProgram\obj\Debug\net8.0\refint\MotivationProgram.dll
+G:\Projects\C#\Console Applications\MotivationProgram\obj\Debug\net8.0\MotivationProgram.pdb
+G:\Projects\C#\Console Applications\MotivationProgram\obj\Debug\net8.0\MotivationProgram.genruntimeconfig.cache
+G:\Projects\C#\Console Applications\MotivationProgram\obj\Debug\net8.0\ref\MotivationProgram.dll

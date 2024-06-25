@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.Json;
-using System.IO;
 
 namespace MotivationProgram
 {
@@ -24,7 +24,7 @@ namespace MotivationProgram
         static List<string> computerLikesName = new List<string>();
 
         // Welcoming Texts
-        static List<string> newWelcomes = new List<string>();
+        static List<List<string>> newWelcomes = new List<List<string>>();
         static List<string> welcomes = new List<string>();
 
         // Computer Responses
@@ -144,7 +144,7 @@ namespace MotivationProgram
             {
                 // Generate greetings for a . . .
                 // New Player
-                newWelcomes.Add($"Welcome to the Motivation Program {player.name}, where basically my goal is to boost your mood. Lets begin! So, do you feel good today?");
+                newWelcomes.Add(new List<string> { $"Welcome to the Motivation Program {player.name}", "Basically, my goal is to boost your mood. Just answer my questions with a 'yes' or a 'no' and ill do my best to keep you positive!", "Ok, lets begin!", $"So {player.name}, do you feel good today?" });
 
                 // Returning Player
                 welcomes.Add($"Welcome back {player.name}, are you feeling alright?");
@@ -519,7 +519,7 @@ namespace MotivationProgram
             LoadGame(); // Load Save Data
 
             // Get players name if it is their first time playing
-            if(PlayersFirstTime())
+            if (PlayersFirstTime())
             {
                 GetPlayerName();
             }
@@ -532,12 +532,12 @@ namespace MotivationProgram
             SaveGame(); // Save Data
 
             // Forever Loop
-            while (1==1)
+            while (1 == 1)
             {
                 Play();
                 SaveGame();
             }
-           
+
 
             // The Game Itself
             void Play()
@@ -562,7 +562,7 @@ namespace MotivationProgram
                     // If it is the Player's first session, provide an introductory message
                     if (player.timesPlayed <= 1)
                     {
-                        Ask(RandomStringFrom(newWelcomes));
+                        Ask(RandomList(newWelcomes));
                     }
                     else
                     {
@@ -851,7 +851,7 @@ namespace MotivationProgram
         // Text at the top of the screen which displays information
         static string ShowStats()
         {
-            return $"[{player.ReturnName()}{ReturnFriendText()}]  (Mood: {player.ReturnMood()})  (Visits: {player.timesPlayed})  (Questions Asked: [This Session: {player.timesAskedThisSession}] [Total: {player.timesAsked}])\n---------------------------------------------------------------------------------------------\n\n"; ;
+            return $"[{player.ReturnName()}{ReturnFriendText()}]  (Mood: {player.ReturnMood()})  (Visits: {player.timesPlayed})  (Questions Asked: [This Session: {player.timesAskedThisSession}] [Total: {player.timesAsked}])\n-----------------------------------------------------------------------------------------------------\n\n"; ;
 
 
             string ReturnFriendText()
